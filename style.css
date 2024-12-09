@@ -1,0 +1,227 @@
+/* Geral */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #7c9ab8, #001f3f);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#gameTitle {
+    font-size: 2rem;
+    color: #a71327;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#score {
+    font-size: 1.2rem;
+    color: #491309;
+    margin-top: 5px;
+}
+
+/* Container do jogo */
+#game {
+    position: relative;
+    width: 90vw;
+    height: 60vh;
+    max-width: 500px;
+    border: 2px solid #1809eb;
+    background-image: url('imagem/cenario.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Navios */
+.ship {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+#ship  { top: 5%; left: 10%; background-image: url('imagem/ship.jpeg'); }
+#ship1 { top: 35%; left: 30%; background-image: url('imagem/ship1.jpeg'); }
+#ship2 { top: 10%; left: 70%; background-image: url('imagem/ship2.jpeg'); }
+#ship3 { top: 25%; left: 10%; background-image: url('imagem/ship3.jpeg'); }
+
+/* Submarino */
+#submarine {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    background-image: url('imagem/submarino.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: moveSubmarine 4s infinite linear alternate;
+    z-index: 10;
+    bottom: 5%;
+    left: 0%;
+}
+
+/* Torpedo */
+.torpedo {
+    position: absolute;
+    width: 5vw;
+    height: 10vh;
+    background-image: url('imagem/torpedo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+}
+
+/* Botões */
+.control-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.control-btn:hover {
+    background-color: #004d40;
+}
+
+/* Overlay de Game Over */
+#gameOverlay {
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 20; /* Garante que está acima dos elementos do jogo */
+}
+
+#gameOverlay p {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    animation: pulse 1s infinite; 
+}
+
+#gameOverMessage {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        color: white;
+        transform: scale(1);
+    }
+    50% {
+        color: red;
+        transform: scale(1.1);
+    }
+    100% {
+        color: white;
+        transform: scale(1);
+    }
+}
+
+#restartBtn,
+#shootBtn {
+    display: none;
+}
+
+/* Media Queries para responsividade */
+
+/* Para telas de smartphones (menos de 600px) */
+@media (max-width: 600px) {
+    #game {
+        width: 90vw; /* O jogo usa 90% da largura da tela */
+        height: 50vh; /* Ajusta a altura para 50% da altura da tela */
+    }
+
+    .ship {
+        width: 50px; /* Reduz os navios */
+        height: 50px;
+    }
+
+    #submarine {
+        width: 15vw; /* Reduz o submarino */
+        height: 15vh;
+    }
+
+    .control-btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    #gameTitle {
+        font-size: 1.5rem;
+    }
+
+    #score {
+        font-size: 1rem;
+    }
+
+    #controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Para telas muito pequenas (ex.: 320px de largura) */
+@media (max-width: 320px) {
+    #game {
+        width: 100vw; /* Usar toda a largura da tela */
+        height: 60vh; /* Altura ajustada para telas muito pequenas */
+    }
+
+    .ship {
+        width: 40px; /* Navios ainda menores */
+        height: 40px;
+    }
+
+    #submarine {
+        width: 20vw; /* Submarino ajustado para caber bem na tela */
+        height: 15vh;
+    }
+
+    .control-btn {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    #gameTitle {
+        font-size: 1.2rem;
+    }
+
+    #score {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+

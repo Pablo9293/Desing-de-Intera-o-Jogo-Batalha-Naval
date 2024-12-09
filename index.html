@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batalha Naval</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="gameTitle">Batalha Naval</h1>
+    <div id="score">Acertos: 0 | Recorde: 0</div>
+  </header>
+  
+  <main id="game">
+    <div id="gameOverlay" style="display: flex;"></div>
+    <!--submarino adicionado-->
+    <div id="submarine"></div>
+    <div class="ship" id="ship"></div>
+    <div class="ship" id="ship1"></div>
+    <div class="ship" id="ship2"></div>
+    <div class="ship" id="ship3"></div>
+  </main>
+
+  <div id="controls">
+    <button class="control-btn" id="startBtn">Iniciar</button>
+    <button class="control-btn" id="stopBtn">Parar o Movimento</button>
+    <button class="control-btn" id="restartBtn" style="display: none;">Reiniciar</button>
+    <button class="control-btn" id="shootBtn" style="display: none;">Atirar</button>
+  </div>
+  
+  <audio id="bgMusic" src="sounds/background.mp3" loop></audio>
+  <audio id="hitSound" src="sounds/alvoAbatido.mp3"></audio>
+  <audio id="missSound" src="sounds/disparoAgua.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
